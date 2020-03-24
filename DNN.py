@@ -8,7 +8,7 @@ from keras.models import Sequential
 from keras.optimizers import SGD
 
 # Here we set the path of the dataset.
-DATALOCATION = 'C:\\Users\\Renos\\Desktop\\PetImages'
+DATALOCATION = 'C:\\path\\of\\folder'
 
 # The categories of the data set. Are two only Cats and dogs. Hence, Dog is category 0 and the Cat is 1
 CATEGORIES = ["Dog", "Cat"]
