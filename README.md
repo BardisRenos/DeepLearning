@@ -189,4 +189,19 @@ The cross entropy convert the values into propabilities on each class.
 <img src="https://github.com/BardisRenos/DeepLearning/blob/master/cross-entropy.jpg" width="450" height="350">
 </p>
 
-## 
+## Train the model
+We start to train the model with the training data and with batch size of 64. That means the model is feeded each time with 64 images at the time.   
+
+```python
+ model.fit(X_train, y_train, validation_data=(X_test, y_test), nb_epoch=epochs, batch_size=64)
+```
+
+## Evaluate the model
+The finaly step is to evaluate our model after the training phase.
+
+```python
+scores = model.evaluate(X_test, y_test, verbose=0)
+```
+
+
+
