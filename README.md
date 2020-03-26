@@ -36,6 +36,7 @@ X_test /= 255.0
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 ```
+
 ## The input part
 
 The main body of deep neural network. I create a sequential model as the below picture depicts. A neural network which has more than one hidden layer is called deep neural network. The sequential model is constracted by input layer, hidden layers and the output layer.
@@ -58,25 +59,29 @@ The scructure of the input image. An example of an input images is shown below.
 ```python
    model.add(Convolution2D(32, 3, 3, input_shape=(32, 32, 3), activation='relu', border_mode='same'))
 ```
-
 The structure of an input image. 
+
+<p align="center"> 
 <img src="https://github.com/BardisRenos/DeepLearning/blob/master/cnn_diagram_notation.png" width="350" height="250">
+</p>
 
 ## Convolutional layer
 A convolutional neural network has a convolutional layer which is frame size that works as a filter with arbitrary values. The output of this layer is a new array with new values. 
 
 ```python
-    model.add(Convolution2D(32, 3, 3, activation='relu', border_mode='same'))
+  model.add(Convolution2D(32, 3, 3, activation='relu', border_mode='same'))
 ```
+
 <p align="center"> 
 <img src="https://github.com/BardisRenos/DeepLearning/blob/master/ConvLayer.png" width="350" height="250">
 </p>
+ 
  
 ## Avtivation function
 Next layer is an activation function. In our model the ReLU is used. Below the first image shows the mathimatical function. Whereas, the second picture shows how the relu works after the convolution layer. 
 
 ```python
-   activation='relu'
+  activation='relu'
 ```
 
 <p align="center"> 
@@ -93,7 +98,7 @@ The ReLU layer create a new image layer with values that are only positive and a
 After the activation function, maxpoooling layer follows. This layer reduce the size of the image. That way the output image keeps only the most important features. 
 
 ```python
-    model.add(MaxPooling2D(pool_size=(2, 2), dim_ordering='th'))
+  model.add(MaxPooling2D(pool_size=(2, 2), dim_ordering='th'))
 ```
 
 <p align="center"> 
@@ -134,7 +139,8 @@ Dense indicates that all neurons are fully connected each other. All n neurons o
 </p>
  
 ## Dense layer
-The second dense layer is the layer that the number of neurons are the number of the classes that we have to clessify. The first parameter shows the number of the classes and the seccond the activation finction. 
+The second dense layer is the layer that the number of neurons are the number of the classes that we have to clessify. The first
+parameter shows the number of the classes and the seccond the activation finction. 
 
 ```python
  model.add(Dense(y_test.shape[1], activation='softmax'))
@@ -144,15 +150,24 @@ The second dense layer is the layer that the number of neurons are the number of
 </p>
 
 ## Activation function
-The activation function helps to classify the output values.
+The activation function helps to classify the output values. The softmax produce a distribution of propabilities. The highest propability correnspond to the correct class.
  
  ```python
   model.add(Dense(y_test.shape[1], activation='softmax'))
  ```
- 
+
+
+## Stochastic Gradient Descent (SGD)
+The SGD works as an optimization. When a model starts to be trained creates error and is not accurate. However, with iterations, the model starts to minimize this error by adapting the weights of each layer of the deep neural network. 
+
+```python
+  decay = lrate / epochs
+  sgd = SGD(lr=lrate, momentum=0.9, decay=decay, nesterov=False)
+```
+
 <p align="center"> 
-<img src=" https://github.com/BardisRenos/DeepLearning/blob/master/sigmoid.PNG" width="400" height="400">
+<img src="https://github.com/BardisRenos/DeepLearning/blob/master/sgd.png" width="600" height="400">
 </p>
 
+## Epochs, decay and learning rate
 
-## Hello
