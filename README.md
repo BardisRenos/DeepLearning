@@ -70,7 +70,7 @@ A convolutional neural network has a convolutional layer which is frame size tha
 ```
 <p align="center"> 
 <img src="https://github.com/BardisRenos/DeepLearning/blob/master/ConvLayer.png" width="350" height="250">
-
+</p>
  
 ## Avtivation function
 Next layer is an activation function. In our model the ReLU is used. Below the first image shows the mathimatical function. Whereas, the second picture shows how the relu works after the convolution layer. 
@@ -81,13 +81,13 @@ Next layer is an activation function. In our model the ReLU is used. Below the f
 
 <p align="center"> 
 <img src="https://github.com/BardisRenos/DeepLearning/blob/master/Relu.png" width="450" height="250">
-
+</p>
 
 The ReLU layer create a new image layer with values that are only positive and all the negative one replace them with 0 
 
 <p align="center"> 
 <img src="https://github.com/BardisRenos/DeepLearning/blob/master/ReluNumber.jpg" width="450" height="250">
-
+</p>
 
 ## MaxPooling layer
 After the activation function, maxpoooling layer follows. This layer reduce the size of the image. That way the output image keeps only the most important features. 
@@ -98,10 +98,10 @@ After the activation function, maxpoooling layer follows. This layer reduce the 
 
 <p align="center"> 
 <img src="https://github.com/BardisRenos/DeepLearning/blob/master/max_pooling.png" width="450" height="250">
-
+</p>
 
 ## Dropout layer
-The dropout layer works in order the model not to avoid overfitting of the model.
+The dropout layer works in order the model to avoid overfitting. The dropout function has a decimal parameter that correnspond to a propability of a neuron will be trained or not. Namely, in our case, each neuron has 50 percent chances to be trained.
 
 ```python
     model.add(Dropout(0.5))
@@ -109,8 +109,50 @@ The dropout layer works in order the model not to avoid overfitting of the model
 
 <p align="center"> 
 <img src="https://github.com/BardisRenos/DeepLearning/blob/master/overfitting.png" width="350" height="200">
+</p>
+
+## Flatten layer
+The flatten layer is the last layer of a Deep Neural Network. After the last pooling layer all data transformed into a 1d array. 
+
+```python
+model.add(Flatten())
+```
+<p align="center"> 
+<img src="https://github.com/BardisRenos/DeepLearning/blob/master/Flatten.png" width="350" height="200">
+</p>
+ 
+ 
+## Dense
+Dense indicates that all neurons are fully connected each other. All n neurons of the current layer are fully concted to all neurons of the next layer. 
+
+```python
+ model.add(Dense(512, activation='relu', W_constraint=maxnorm(3)))
+ ```
+ 
+<p align="center"> 
+<img src="https://github.com/BardisRenos/DeepLearning/blob/master/dense.png" width="350" height="200">
+</p>
+ 
+## Dense layer
+The second dense layer is the layer that the number of neurons are the number of the classes that we have to clessify. The first parameter shows the number of the classes and the seccond the activation finction. 
+
+```python
+ model.add(Dense(y_test.shape[1], activation='softmax'))
+``` 
+<p align="center"> 
+<img src="https://github.com/BardisRenos/DeepLearning/blob/master/fullconectedlayer.jpg" width="350" height="200">
+</p>
+
+## Activation function
+The activation function helps to classify the output values.
+ 
+ ```python
+  model.add(Dense(y_test.shape[1], activation='softmax'))
+ ```
+ 
+<p align="center"> 
+<img src=" https://github.com/BardisRenos/DeepLearning/blob/master/sigmoid.PNG" width="400" height="400">
+</p>
 
 
-
-
-
+## Hello
