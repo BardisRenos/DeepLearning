@@ -109,7 +109,7 @@ After the activation function, maxpoooling layer follows. This layer reduce the 
 The dropout layer works in order the model to avoid overfitting. The dropout function has a decimal parameter that correnspond to a propability of a neuron will be trained or not. Namely, in our case, each neuron has 50 percent chances to be trained.
 
 ```python
-    model.add(Dropout(0.5))
+  model.add(Dropout(0.5))
 ```
 
 <p align="center"> 
@@ -156,6 +156,10 @@ The activation function helps to classify the output values. The softmax produce
   model.add(Dense(y_test.shape[1], activation='softmax'))
  ```
 
+<p align="center"> 
+<img src="https://github.com/BardisRenos/DeepLearning/blob/master/sigmoid.png" width="350" height="350">
+</p>
+
 
 ## Stochastic Gradient Descent (SGD)
 The SGD works as an optimization. When a model starts to be trained creates error and is not accurate. However, with iterations, the model starts to minimize this error by adapting the weights of each layer of the deep neural network. 
@@ -169,5 +173,20 @@ The SGD works as an optimization. When a model starts to be trained creates erro
 <img src="https://github.com/BardisRenos/DeepLearning/blob/master/sgd.png" width="600" height="400">
 </p>
 
-## Epochs, decay and learning rate
 
+## Epochs, decay and learning rate
+Epochs is the number of times that the model will be trained. Where, decay shows the each time how much the step will decrease. The learning rate is the step. 
+
+
+## Categorical Cross-Entropy
+The cross entropy convert the values into propabilities on each class.
+
+```python
+ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+```
+
+<p align="center"> 
+<img src="https://github.com/BardisRenos/DeepLearning/blob/master/cross-entropy.jpg" width="450" height="350">
+</p>
+
+## 
